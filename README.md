@@ -49,6 +49,39 @@ express()
 
  The client files are composed as the following:
 
+```sh
+public
+	stylesheets
+		main.css (: this is where you can add your "global" css)
+
+views
+	pages
+		index.ejs (: this is where you can add your "pages")
+		about.ejs
+	partials
+		header.ejs (: embedded in each 'page', where the <title></title> - see below)
+```
+
+In each page, you can see how the `header.ejs` and the `main.css` are added:
+<head>
+  // this calls the document named 'header' in the folder '/partials', see 
+  <%- include ("../partials/header.ejs") %>
+</head>
+
+Then, the `header.ejs` looks like that:
+
+```css
+<title>My ejs app</title>
+<!-- This is where we instanciate the bootstrap css-->
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<!-- This is where we instanciate jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- This is where we instanciate the bootstrap js-->
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<!-- This is where we call our styleshee  -->
+<link rel="stylesheet" type="text/css" href="/stylesheets/main.css" />
+```
+
 ### Deploying to Heroku
 
 Using resources for this example app counts towards your usage. [Delete your app](https://devcenter.heroku.com/articles/heroku-cli-commands#heroku-apps-destroy) and [database](https://devcenter.heroku.com/articles/heroku-postgresql#removing-the-add-on) as soon as you are done experimenting to control costs.
