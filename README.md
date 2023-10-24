@@ -63,10 +63,8 @@ views
 ```
 
 In each page, you can see how the `header.ejs` and the `main.css` are added:
-<head>
-  // this calls the document named 'header' in the folder '/partials', see 
-  <%- include ("../partials/header.ejs") %>
-</head>
+
+`<%- include ("../partials/header.ejs") %>`
 
 Then, the `header.ejs` looks like that:
 
